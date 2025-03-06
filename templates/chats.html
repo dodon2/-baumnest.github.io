@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Ваши чаты</h2>
+<ul class="list-group">
+    {% for chat in chats %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+            {% if chat[1] == current_user_id %}
+                {{ chat[2] }}
+            {% else %}
+                {{ chat[1] }}
+            {% endif %}
+            <p class="text-muted">{{ chat[3] }}</p>
+        </div>
+        <a href="/chat/{{ chat[0] }}" class="btn btn-primary">Перейти в чат</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Список квартир</h2>
+<div class="row">
+    {% for apartment in apartments %}
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">{{ apartment[1] }}</h5>
+                <p class="card-text"><strong>Адрес:</strong> {{ apartment[2] }}</p>
+                <p class="card-text"><strong>Цена:</strong> {{ apartment[3] }} руб.</p>
+                <a href="{{ url_for('apartment_detail', ad_id=apartment[0]) }}" class="btn btn-primary">Подробнее</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Объявления</h1>
+
+<ul>
+    {% for ad in ads %}
+        <li>
+            <h2>{{ ad[1] }}</h2>
+            <p>{{ ad[2] }}</p>
+            <div>
+                <img src="{{ ad[4] }}" alt="Аватар" width="50" height="50">
+                <p>От: {{ ad[3] }}</p>
+                <a href="{{ url_for('chat', user_id=ad[5]) }}">Перейти в чат</a>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="{{ url_for('create_ad') }}">Создать объявление</a>
+{% endblock %}

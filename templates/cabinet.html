@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Личный кабинет</h1>
+<p>Добро пожаловать, {{ username }}!</p>
+<!-- Отладочный вывод роли -->
+<p>Ваша роль: {{ role }}</p>
+
+<!-- Отображение аватарки -->
+<div style="margin-bottom: 20px;">
+    {% if avatar %}
+        <img src="{{ avatar }}" alt="Аватар" style="width: 150px; height: 150px; border-radius: 50%; border: 2px solid #ccc;">
+    {% else %}
+        <p style="color: #888;">Аватарка не загружена</p>
+    {% endif %}
+</div>
+
+<!-- Форма для обновления данных -->
+<form method="POST" action="/cabinet" enctype="multipart/form-data">
+    <label for="username">Имя пользователя:</label><br>
+    <input type="text" id="username" name="username" value="{{ username }}" placeholder="Введите новое имя пользователя" required style="width: 300px;"><br><br>
+
+    <label for="fio">ФИО:</label><br>
+    <input type="text" id="fio" name="fio" value="{{ fio }}" placeholder="Введите ФИО" required style="width: 300px;"><br><br>
+
+    <label for="phone">Номер телефона:</label><br>
+    <input type="tel" id="phone" name="phone" value="{{ phone }}" placeholder="+7 (999) 999-99-99" required style="width: 300px;"><br><br>
+
+    <label for="email">Электронная почта:</label><br>
+    <input type="email" id="email" name="email" value="{{ email }}" placeholder="Введите вашу почту" required style="width: 300px;"><br><br>
+
+    <label for="about">О себе:</label><br>
+    <textarea id="about" name="about" rows="4" cols="40" placeholder="Расскажите о себе" style="resize: none;">{{ about }}</textarea><br><br>
+
+    <label for="photo">Загрузить аватарку:</label><br>
+    <input type="file" name="photo" id="photo" accept="image/*"><br><br>
+
+    <button type="submit" class="btn">Сохранить изменения</button>
+</form>
+
+<!-- Кнопка перехода в панель модерации -->
+{% if role in ['moderator', 'admin'] %}
+    <hr>
+    <a href="{{ url_for('moderation') }}">
+        <button style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer;">
+            Панель модерации
+        </button>
+    </a>
+{% endif %}
+
+<hr>
+<h3>"                                                                                        "</h3>
+<ul>
+    {% for photo in photos %}
+    <li>
+        <img src="/uploads/{{ photo }}" alt="Фото" style="width: 10px; height: auto; margin: 10px;">
+    </li>
+    {% endfor %}
+</ul>
+
+<!-- Форма для удаления аккаунта -->
+<form method="POST" action="/delete_account" onsubmit="return confirm('Вы уверены, что хотите удалить свой аккаунт?')">
+    <button type="submit" style="color: red;">Удалить аккаунт</button>
+</form>
+
+{% endblock %}

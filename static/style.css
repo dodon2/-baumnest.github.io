@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+
+    /* Устанавливаем фон */
+    background: url('/static/images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+
+    /* Для более простого фона можно использовать цвет или градиент: */
+    /* background-color: #f0f0f0; */
+    /* background: linear-gradient(to bottom, #1e3c72, #2a5298); */
+}
+
+h1 {
+    color: rgb(247, 232, 148);
+    text-align: center;
+    margin-top: 20%;
+}
+
+p {
+    color: rgba(202, 223, 225, 0.799);
+    text-align: center;
+}
+
+
+
+/* Основной стиль */
+body {
+    background-color: #f8f9fa;
+}
+
+/* Карточки */
+.card {
+    border-radius: 10px;
+}
+
+/* Чат */
+#chat-window {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+}
+
+.bg-primary {
+    background-color: #0d6efd !important;
+    color: #fff;
+}
+
+.bg-light {
+    background-color: #f1f1f1 !important;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #0d6efd;
+    box-shadow: 0 0 5px rgba(13, 110, 253, 0.5);
+}

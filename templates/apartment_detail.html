@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ apartment[1] }}</h2>
+<p><strong>Адрес:</strong> {{ apartment[2] }}</p>
+<p><strong>Цена:</strong> {{ apartment[3] }} руб.</p>
+<p><strong>Телефон:</strong> {{ apartment[4] }}</p>
+<p><strong>Описание:</strong> {{ apartment[5] }}</p>
+<p><strong>Автор объявления:</strong> {{ apartment[6] }}</p>
+<a href="{{ url_for('chat', user_id=apartment[7]) }}" class="btn btn-primary">Чат с автором</a>
+{% endblock %}

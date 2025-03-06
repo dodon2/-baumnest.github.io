@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Baumarket</title>
+    </head>
+    <body>
+        <h1>Добро пожаловать в BaumNest!</h1>
+        <p>Сервис помогающий студентам!</p>
+    </body>
+
+    <style>
+        /* Центрируем все содержимое страницы */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 50vh; /* Высота окна браузера */ 
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+    
+        /* Стиль для кнопок */
+        button {
+            padding: 10px 20px;
+            margin: 10px; /* Отступ между кнопками */
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    
+        /* Расположение кнопок внизу */
+        .bottom-buttons {
+            position: absolute;
+            bottom: 20px; /* Расстояние от нижнего края страницы */
+            width: 100%; /* Ширина блока кнопок */
+            display: flex;
+            justify-content: space-evenly; /* Равномерное распределение кнопок */
+        }
+    
+        /* Пример плавающей кнопки */
+        .floating-button {
+            position: fixed;
+            bottom: 20px; /* Расстояние от нижнего края */
+            right: 30px; /* Расстояние от правого края */
+            background-color: #007BFF;
+        }
+        
+        /* Пример плавающей кнопки */
+        .floating-button1 {
+            position: fixed;
+            bottom: 20px; /* Расстояние от нижнего края */
+            right: 120px; /* Расстояние от правого края */
+            background-color: #007BFF;
+        }
+    </style>
+    
+
+</head>
+<body>
+    <p>Чем помочь?</p>
+
+    <!-- Основные кнопки -->
+    <button onclick="window.location.href='/apartments'">Найти квартиру</button>
+    <button onclick="window.location.href='/create_apartment_ad'">Сдать квартиру</button>
+    <button onclick="window.location.href='/ads'">Объявления</button>
+    <!-- Плавающая кнопка -->
+    <button class="floating-button" onclick="window.location.href='page3'">Еще</button>
+    <button class="floating-button1" onclick="window.location.href='login'">Войти</button>
+</body>
+</html>

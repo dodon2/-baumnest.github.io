@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Чат с {{ recipient[0] }}</h2>
+
+<div class="chat-box" style="border: 1px solid #ccc; padding: 10px; height: 400px; overflow-y: scroll;">
+    {% for message in messages %}
+        <div class="message">
+            <p><strong>
+                {% if message[0] == current_user_id %}
+                    Вы:
+                {% else %}
+                    {{ recipient[0] }}:
+                {% endif %}
+            </strong> {{ message[1] }}</p>
+            <p class="text-muted" style="font-size: 12px;">{{ message[2] }}</p>
+        </div>
+    {% endfor %}
+</div>
+
+<form method="POST" style="margin-top: 15px;">
+    <div class="input-group">
+        <input type="text" name="message" class="form-control" placeholder="Введите сообщение" required>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="mb-4">Создать объявление</h1>
+<div class="card p-4 shadow-sm">
+    <form method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title" class="form-label">Заголовок</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Введите заголовок" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Описание</label>
+            <textarea class="form-control" id="description" name="description" rows="5" placeholder="Введите описание" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success w-100">Опубликовать</button>
+    </form>
+</div>
+{% endblock %}
